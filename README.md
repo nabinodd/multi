@@ -7,7 +7,7 @@ python3 joystick.py(install required dependencies)
 2. Check connectivity(IP)
 3. Commands
 
-ssh multipi.local >> pw : pi
+ssh pi@multipi.local >> pw : pi
 
 
 cd code_base
