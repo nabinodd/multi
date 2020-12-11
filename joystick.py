@@ -19,7 +19,7 @@ else:
 
 # broker='localhost'
 broker='192.168.0.102'
-client=mqtt.Client('client1')
+client=mqtt.Client('client2')
 
 def on_log(client,userdata,level,buf):
     print('log: '+buf)
@@ -59,11 +59,20 @@ while True:
         btn8=controller.get_button(7)
         btn12=controller.get_button(11)
         btn2=controller.get_button(1)
+        btnc=controller.get_button(4)
+        btnd=controller.get_button(5)
+
         accl_knob=round(-controller.get_axis(3),1)
 
         if(btn7 and btn11 and btn2):
             client.publish('joystick/lifter','down')
             # print('Down')
+        if(btnc):
+            client.publish('auto_entry','0')
+            #print('Manual Mode')
+        if(btnd):
+            client.publish('auto_entry','1')
+            #print('Automatic Mode')        
         if(btn8 and btn12 and btn2):
             client.publish('joystick/lifter','up')
             # print('Up')
